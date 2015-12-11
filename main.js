@@ -59,7 +59,7 @@ function gameStart(){// ゲーム画面
     mole1.x = 20;
     mole1.y = 130;
     scene.addChild(mole1);
-    mole1.moleWait(50).moleUp(10).moleWait(10).moleDown(10);
+    mole1.moleWait(getRandom(5, 30)).moleUp(getRandom(5, 25)).moleWait(getRandom(0, 10)).moleDown(getRandom(5, 25));
     mole1.addEventListener(enchant.Event.TOUCH_START , function(e) {
         this.image = core.assets['images/wack_a_mole_mole_hit_1.png'];
         this.moleClear().moleDown(10);
@@ -68,7 +68,7 @@ function gameStart(){// ゲーム画面
     });
     mole1.addEventListener(enchant.Event.MOLE_DOWN_END , function(e) {
         this.image = core.assets['images/wack_a_mole_mole.png'];
-        this.moleWait(50).moleUp(10).moleWait(10).moleDown(10);
+        mole1.moleWait(getRandom(5, 30)).moleUp(getRandom(5, 25)).moleWait(getRandom(0, 10)).moleDown(getRandom(5, 25));
     });
 
     // もぐら２
@@ -77,6 +77,17 @@ function gameStart(){// ゲーム画面
     mole2.x = 120;
     mole2.y = 130;
     scene.addChild(mole2);
+    mole2.moleWait(getRandom(5, 30)).moleUp(getRandom(5, 25)).moleWait(getRandom(0, 10)).moleDown(getRandom(5, 25));
+    mole2.addEventListener(enchant.Event.TOUCH_START , function(e) {
+        this.image = core.assets['images/wack_a_mole_mole_hit_1.png'];
+        this.moleClear().moleDown(10);
+        core.assets['sounds/hit.mp3'].play(true);
+        scoreLabel.score += 1;
+    });
+    mole2.addEventListener(enchant.Event.MOLE_DOWN_END , function(e) {
+        this.image = core.assets['images/wack_a_mole_mole.png'];
+        mole2.moleWait(getRandom(5, 30)).moleUp(getRandom(5, 25)).moleWait(getRandom(0, 10)).moleDown(getRandom(5, 25));
+    });
 
     // もぐら３
     var mole3 = new Mole(82,62);
@@ -84,30 +95,119 @@ function gameStart(){// ゲーム画面
     mole3.x = 220;
     mole3.y = 130;
     scene.addChild(mole3);
+    mole3.moleWait(getRandom(5, 30)).moleUp(getRandom(5, 25)).moleWait(getRandom(0, 10)).moleDown(getRandom(5, 25));
+    mole3.addEventListener(enchant.Event.TOUCH_START , function(e) {
+        this.image = core.assets['images/wack_a_mole_mole_hit_1.png'];
+        this.moleClear().moleDown(10);
+        core.assets['sounds/hit.mp3'].play(true);
+        scoreLabel.score += 1;
+    });
+    mole3.addEventListener(enchant.Event.MOLE_DOWN_END , function(e) {
+        this.image = core.assets['images/wack_a_mole_mole.png'];
+        mole3.moleWait(getRandom(5, 30)).moleUp(getRandom(5, 25)).moleWait(getRandom(0, 10)).moleDown(getRandom(5, 25));
+    });
 
     // もぐら４
     var mole4 = new Mole(82,62);
     mole4.x = 20;
     mole4.y = 250;
     scene.addChild(mole4);
+    mole4.moleWait(getRandom(5, 30)).moleUp(getRandom(5, 25)).moleWait(getRandom(0, 10)).moleDown(getRandom(5, 25));
+    mole4.addEventListener(enchant.Event.TOUCH_START , function(e) {
+        this.image = core.assets['images/wack_a_mole_mole_hit_1.png'];
+        this.moleClear().moleDown(10);
+        core.assets['sounds/hit.mp3'].play(true);
+        scoreLabel.score += 1;
+    });
+    mole4.addEventListener(enchant.Event.MOLE_DOWN_END , function(e) {
+        this.image = core.assets['images/wack_a_mole_mole.png'];
+        mole4.moleWait(getRandom(5, 30)).moleUp(getRandom(5, 25)).moleWait(getRandom(0, 10)).moleDown(getRandom(5, 25));
+    });
 
     // もぐら５
     var mole5 = new Mole(82,62);
+    mole5.x = 120;
+    mole5.y = 250;
+    scene.addChild(mole5);
+    mole5.moleWait(getRandom(5, 30)).moleUp(getRandom(5, 25)).moleWait(getRandom(0, 10)).moleDown(getRandom(5, 25));
+    mole5.addEventListener(enchant.Event.TOUCH_START , function(e) {
+        this.image = core.assets['images/wack_a_mole_mole_hit_1.png'];
+        this.moleClear().moleDown(10);
+        core.assets['sounds/hit.mp3'].play(true);
+        scoreLabel.score += 1;
+    });
+    mole5.addEventListener(enchant.Event.MOLE_DOWN_END , function(e) {
+        this.image = core.assets['images/wack_a_mole_mole.png'];
+        mole5.moleWait(getRandom(5, 30)).moleUp(getRandom(5, 25)).moleWait(getRandom(0, 10)).moleDown(getRandom(5, 25));
+    });
 
     // もぐら６
     var mole6 = new Mole(82,62);
+    mole6.x = 220;
+    mole6.y = 250;
+    scene.addChild(mole6);
+    mole6.moleWait(getRandom(5, 30)).moleUp(getRandom(5, 25)).moleWait(getRandom(0, 10)).moleDown(getRandom(5, 25));
+    mole6.addEventListener(enchant.Event.TOUCH_START , function(e) {
+        this.image = core.assets['images/wack_a_mole_mole_hit_1.png'];
+        this.moleClear().moleDown(10);
+        core.assets['sounds/hit.mp3'].play(true);
+        scoreLabel.score += 1;
+    });
+    mole6.addEventListener(enchant.Event.MOLE_DOWN_END , function(e) {
+        this.image = core.assets['images/wack_a_mole_mole.png'];
+        mole6.moleWait(getRandom(5, 30)).moleUp(getRandom(5, 25)).moleWait(getRandom(0, 10)).moleDown(getRandom(5, 25));
+    });
 
     // もぐら７
     var mole7 = new Mole(82,62);
     mole7.x = 20;
     mole7.y = 370;
     scene.addChild(mole7);
+    mole7.moleWait(getRandom(5, 30)).moleUp(getRandom(5, 25)).moleWait(getRandom(0, 10)).moleDown(getRandom(5, 25));
+    mole7.addEventListener(enchant.Event.TOUCH_START , function(e) {
+        this.image = core.assets['images/wack_a_mole_mole_hit_1.png'];
+        this.moleClear().moleDown(10);
+        core.assets['sounds/hit.mp3'].play(true);
+        scoreLabel.score += 1;
+    });
+    mole7.addEventListener(enchant.Event.MOLE_DOWN_END , function(e) {
+        this.image = core.assets['images/wack_a_mole_mole.png'];
+        mole7.moleWait(getRandom(5, 30)).moleUp(getRandom(5, 25)).moleWait(getRandom(0, 10)).moleDown(getRandom(5, 25));
+    });
 
     // もぐら８
     var mole8 = new Mole(82,62);
+    mole8.x = 120;
+    mole8.y = 370;
+    scene.addChild(mole8);
+    mole8.moleWait(getRandom(5, 30)).moleUp(getRandom(5, 25)).moleWait(getRandom(0, 10)).moleDown(getRandom(5, 25));
+    mole8.addEventListener(enchant.Event.TOUCH_START , function(e) {
+        this.image = core.assets['images/wack_a_mole_mole_hit_1.png'];
+        this.moleClear().moleDown(10);
+        core.assets['sounds/hit.mp3'].play(true);
+        scoreLabel.score += 1;
+    });
+    mole8.addEventListener(enchant.Event.MOLE_DOWN_END , function(e) {
+        this.image = core.assets['images/wack_a_mole_mole.png'];
+        mole8.moleWait(getRandom(5, 30)).moleUp(getRandom(5, 25)).moleWait(getRandom(0, 10)).moleDown(getRandom(5, 25));
+    });
 
     // もぐら９
     var mole9 = new Mole(82,62);
+    mole9.x = 220;
+    mole9.y = 370;
+    scene.addChild(mole9);
+    mole9.moleWait(getRandom(5, 30)).moleUp(getRandom(5, 25)).moleWait(getRandom(0, 10)).moleDown(getRandom(5, 25));
+    mole9.addEventListener(enchant.Event.TOUCH_START , function(e) {
+        this.image = core.assets['images/wack_a_mole_mole_hit_1.png'];
+        this.moleClear().moleDown(10);
+        core.assets['sounds/hit.mp3'].play(true);
+        scoreLabel.score += 1;
+    });
+    mole9.addEventListener(enchant.Event.MOLE_DOWN_END , function(e) {
+        this.image = core.assets['images/wack_a_mole_mole.png'];
+        mole9.moleWait(getRandom(5, 30)).moleUp(getRandom(5, 25)).moleWait(getRandom(0, 10)).moleDown(getRandom(5, 25));
+    });
 
     //==========
     // ここまで
