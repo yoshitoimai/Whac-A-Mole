@@ -34,6 +34,12 @@ var assets = [
 function gameStart(){// ゲーム画面
     var scene = new Scene();
     core.replaceScene(scene); core.resume();
+    enchant.Mole.prototype.behindHoleImage = core.assets['images/wack_a_mole_hole_1_a.png'];
+    enchant.Mole.prototype.frontHoleImage = core.assets['images/wack_a_mole_hole_1_b.png'];
+
+    //==========
+    // ここから
+    //==========
 
     // 背景
     var background = new Sprite(320, 480);
@@ -47,6 +53,104 @@ function gameStart(){// ゲーム画面
     background1.y = 0;
     scene.addChild(background1);
 
+    // もぐら１
+    var mole1 = new Mole(82,62);
+    mole1.image = core.assets['images/wack_a_mole_mole.png'];
+    mole1.x = 20;
+    mole1.y = 130;
+    scene.addChild(mole1);
+    mole1.moleWait(50).moleUp(10).moleWait(10).moleDown(10);
+    mole1.addEventListener(enchant.Event.TOUCH_START , function(e) {
+        this.image = core.assets['images/wack_a_mole_mole_hit_1.png'];
+        this.moleClear().moleDown(10);
+        core.assets['sounds/hit.mp3'].play(true);
+        scoreLabel.score += 1;
+    });
+    mole1.addEventListener(enchant.Event.MOLE_DOWN_END , function(e) {
+        this.image = core.assets['images/wack_a_mole_mole.png'];
+        this.moleWait(50).moleUp(10).moleWait(10).moleDown(10);
+    });
+
+    // もぐら２
+    var mole2 = new Mole(82,62);
+    mole2.image = core.assets['images/wack_a_mole_mole.png'];
+    mole2.x = 120;
+    mole2.y = 130;
+    scene.addChild(mole2);
+
+    // もぐら３
+    var mole3 = new Mole(82,62);
+    mole3.image = core.assets['images/wack_a_mole_mole.png'];
+    mole3.x = 220;
+    mole3.y = 130;
+    scene.addChild(mole3);
+
+    // もぐら４
+    var mole4 = new Mole(82,62);
+    mole4.x = 20;
+    mole4.y = 250;
+    scene.addChild(mole4);
+
+    // もぐら５
+    var mole5 = new Mole(82,62);
+
+    // もぐら６
+    var mole6 = new Mole(82,62);
+
+    // もぐら７
+    var mole7 = new Mole(82,62);
+    mole7.x = 20;
+    mole7.y = 370;
+    scene.addChild(mole7);
+
+    // もぐら８
+    var mole8 = new Mole(82,62);
+
+    // もぐら９
+    var mole9 = new Mole(82,62);
+
+    //==========
+    // ここまで
+    //==========
+
+    // タイム
+    timeLabel = new Label('時間 : 30秒');
+    timeLabel.x = 10;
+    timeLabel.y = 10;
+    timeLabel.color = 'white';
+    timeLabel.score = 30;
+    scene.addChild(timeLabel);
+    //
+    scene.tl.setTimeBased();
+    scene.tl.delay(1000).then(function() {
+        timeLabel.score -= 1;
+        timeLabel.text = '時間 : ' + timeLabel.score + '秒';
+        if (timeLabel.score == 0) {
+            gameover = new Label('叩いたモグラの数：' + scoreLabel.score);
+            gameover.font = "200% 'Lora'";
+            gameover.textAlign = 'center';
+            gameover.width = core.width;
+            gameover.y = core.height / 2 - gameover._boundHeight / 2;
+            gameover.color = 'white';
+            scene.addChild(gameover);
+            core.stop();
+        }
+    }).loop();
+
+    // スコア
+    scoreLabel = new Label('得点 : 0');
+    scoreLabel.x = 10;
+    scoreLabel.y = 30;
+    scoreLabel.color = 'white';
+    scoreLabel.score = 0;
+    scene.addChild(scoreLabel);
+    scoreLabel.addEventListener(Event.ENTER_FRAME, function() {
+        scoreLabel.text = '得点 : ' + scoreLabel.score;
+    });
+}
+
+function getRandom(start, end) {
+    return start + Math.floor( Math.random() * (end - start + 1));
 }
 
 function titleStart(){// タイトル画面
