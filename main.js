@@ -14,6 +14,7 @@ var assets = [
     'images/wack_a_mole_hole_3_b.png',
     // もぐら
     'images/wack_a_mole_mole.png',
+    'images/mole_1.png',
     // 草
     'images/wack_a_mole_grass_patch_1.png',
     'images/wack_a_mole_grass_patch_2.png',
@@ -66,8 +67,15 @@ function gameStart(){// ゲーム画面
         core.assets['sounds/hit.mp3'].play(true);
         scoreLabel.score += 1;
     });
+    var disp = true;
     mole1.addEventListener(enchant.Event.MOLE_DOWN_END , function(e) {
-        this.image = core.assets['images/wack_a_mole_mole.png'];
+        var rdm = getRandom(1, 2);
+        if (rdm == 1 && disp == true) {
+            this.image = core.assets['images/mole_1.png'];
+            disp = false;
+        } else {
+            mole1.image = core.assets['images/wack_a_mole_mole.png'];
+        }
         mole1.moleWait(getRandom(5, 30)).moleUp(getRandom(5, 25)).moleWait(getRandom(0, 10)).moleDown(getRandom(5, 25));
     });
 
