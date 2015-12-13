@@ -139,6 +139,7 @@ function titleStart(){// タイトル画面
 // EnchantJS
 var core;
 enchant();
+enchant.ENV.USE_TOUCH_TO_START_SCENE = false;
 window.onload = function() {
 core = new Core(320, 480);
 core.fps = 16;
