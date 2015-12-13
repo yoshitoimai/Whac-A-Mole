@@ -65,16 +65,22 @@ function gameStart(){// ゲーム画面
         this.image = core.assets['images/wack_a_mole_mole_hit_1.png'];
         this.moleClear().moleDown(10);
         core.assets['sounds/hit.mp3'].play(true);
-        scoreLabel.score += 1;
+        if (this.imageFlg == 1) {
+            scoreLabel.score += 10;
+        } else {
+            scoreLabel.score += 1;
+        }
     });
     var disp = true;
     mole1.addEventListener(enchant.Event.MOLE_DOWN_END , function(e) {
         var rdm = getRandom(1, 2);
         if (rdm == 1 && disp == true) {
             this.image = core.assets['images/mole_1.png'];
+            this.imageFlg = 1;
             disp = false;
         } else {
             mole1.image = core.assets['images/wack_a_mole_mole.png'];
+            this.imageFlg = 2;
         }
         mole1.moleWait(getRandom(5, 30)).moleUp(getRandom(5, 25)).moleWait(getRandom(0, 10)).moleDown(getRandom(5, 25));
     });
